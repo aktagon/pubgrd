@@ -1,0 +1,23 @@
+[package]
+name = "pubgrd"
+version = "0.2.0"
+edition = "2024"
+description = "Copy a public repository tree from a private one, and verify nothing else got in"
+license = "Elastic-2.0"
+authors = ["Aktagon <christian@aktagon.com>"]
+repository = "https://github.com/aktagon/pubgrd"
+
+# Every crate here is already a ctxgrd dependency. Taking the same set is family
+# consistency rather than a fresh decision, and it means the two tools match
+# paths the same way. Justified per-crate in the path-matching rules; do not add a sixth without
+# an ADR saying why stdlib is insufficient.
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+globset = "0.4"
+ignore = "0.4"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+
+[dev-dependencies]
+tempfile = "3"
